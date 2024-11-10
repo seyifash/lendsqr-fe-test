@@ -1,0 +1,65 @@
+.paginationContainer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.pageInfo {
+    display: flex;
+    justify-content: space-between;
+    color: #545F7D;
+    font-size: 0.8rem;
+    font-weight: 400;
+    width: 12rem;
+    align-items:center;
+    margin-bottom: 2rem;
+}
+
+.showing{
+    background: #213F7D1A;
+    display: flex;
+    justify-content: space-between;
+    padding:  0.4rem 0.6rem;
+    width: 4rem;
+    color: #213F7D;
+    font-weight: 500;
+    font-size: 0.8rem;
+    border-radius: 4px;
+    align-items: center;
+
+}
+
+.dropi i {
+    color:#545F7D;
+    font-size: 1rem;
+}
+.num {
+    color: #545F7D;
+    font-size: 0.8rem;
+    border: none;
+    background: transparent;
+}
+.activePage {
+    color: #213F7D;
+}
+
+.pageControls {
+    display: flex;
+    min-width: 13rem;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.control{
+    outline: none;
+    padding: 0 0.2rem;
+    width: 1.5rem;
+    background: #213F7D1A;
+    border-radius: 4px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.control i {
+    font-size: 1.3rem;
+}

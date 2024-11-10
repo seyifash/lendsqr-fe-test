@@ -1,0 +1,80 @@
+.topBar {
+    position: sticky;
+    padding: 1.5rem 1.2rem;
+    height: 5.3rem;
+    display: flex;
+    align-items: center;
+    top: 0;
+    left: 0;
+    right:0;
+    background: #fff;
+    width: 100%;
+    z-index: 2;
+}
+
+.search {
+    width: 30%;
+    height: 2rem;
+    display: flex;
+    margin-left: 10rem;
+    margin-right: 16rem;
+}
+.search input {
+    outline: none;
+    padding: 1rem;
+    border: 1px solid #707686;
+    border-top-left-radius:  7px;
+    border-bottom-left-radius: 7px;
+    color: #616a83;
+    font-size: 0.8rem;
+    width: 90%;
+    height: 100%;
+    font-weight: 400;
+    border-right: 0px solid transparent;
+}
+.search .searchIcon {
+    width: 10%;
+    height: 2.1rem;
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #39CDCC;
+    font-size: 0.8rem;
+    color: #fff;
+}
+
+.profile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 17%;
+}
+
+.profile .notification,
+.profile a {
+    color: #213F7D;
+    text-decoration-line: underline;
+    font-size: 0.8rem;
+}
+
+.profile .notification{
+    font-size: 1.1rem;
+}
+.profile .pro {
+    display: flex;
+    align-items: center;
+}
+
+.profile .userImage  {
+  font-size: 40px;
+}
+.profile .userName {
+    color: #213F7D;
+    font-size: 0.9rem;
+    padding-left: 0.5rem;
+}
+.profile .userName i {
+    font-size: 0.5rem;
+}

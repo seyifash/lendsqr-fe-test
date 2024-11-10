@@ -1,0 +1,64 @@
+.filterform {
+    position: absolute;
+    width: 25%;
+    border-radius:10px;
+    background: #fff;
+    padding: 1rem 1rem;
+    border: 1px solid #545F7D24;
+    top: 40%;
+    left: 6%;
+    z-index: 5  
+}
+
+.filterInput, 
+.filterform form {
+    display: flex;
+    flex-direction: column;
+}
+.filterInput label {
+    color: #545F7D;
+    font-size: 0.9rem;
+    font-weight: 500;
+    line-height: 2rem;
+} 
+
+.filterInput select,
+.filterInput input {
+    height: 25%;
+    outline: none;
+    border: 1px solid #545F7D24;
+    border-radius: 10px;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    color:#545F7D;
+}
+
+.filterInput select {
+    width: 100%;
+    padding-right:2rem
+}
+
+.btn {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.btn1 ,
+.btn2 {
+    padding: 0.5rem;
+    outline: none;
+    width: 47%;
+    background: #fff;
+    border: 1px solid #545F7D;
+    border-radius: 8px;
+    color: #545F7D;
+    font-size: 0.9rem;
+}
+.btn2 {
+    border: none;
+    background: #39CDCC;
+    color: #fff;
+}

@@ -1,0 +1,200 @@
+
+.userCard {
+    padding: 2rem 0rem;
+}
+
+.back {
+    color:#545F7D;
+    font-size: 0.9rem;
+    line-height: 2rem;
+    display: flex;
+    align-items: center;
+}
+.back strong {
+    font-size: 1.4rem;
+    padding-right: 0.5rem;
+}
+
+.sect1 {
+    margin-top: 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.sect1 span {
+    color: #213F7D;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+.sect1 .box {
+    display: flex;
+
+}
+
+.sect1 .box .red {
+    color: #E4033B;
+    border: 1px solid #E4033B;
+    font-size: 0.7rem;
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    margin-right: 1rem;
+}
+
+.sect1 .box .green {
+    color: #39CDCC;
+    border: 1px solid #39CDCC;
+    font-size: 0.7rem;
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+}
+
+.card1 {
+    width: 100%;
+    background: #fff;
+}
+.card {
+    background: #fff;
+    border-radius: 4px;
+    display: flex;
+    padding:1.5rem  1rem;
+    width: 80%;
+    margin-bottom: 2rem;
+}
+
+.card .cardPart1 {
+    border-right: 1px solid #878a92;
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+}
+.card .cardPart2,
+.card .cardPart {
+    border-right: 1px solid #878a92;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    padding: 1rem;
+}
+.card .cardPart2 {
+    border: none
+}
+
+.card .cardPart2 .amount {
+    font-size: 1.2rem;
+    color: #213F7D;
+    font-weight: 500;
+
+}
+
+.card .cardPart2 .bank {
+    color: #213F7D;
+    font-size: 0.7rem;
+    font-weight: 400;
+}
+.card .cardPart .tier {
+    color: #545F7D;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.card .cardPart .star i {
+    font-size: 0.8rem;
+    color: #E9B200;
+}
+
+.card .cardPart1 .icon {
+    height: 5rem;
+    width: 5rem;
+    border-radius: 50%;
+    background: #ccd6f1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.id {
+    display: flex;
+    flex-direction: column;
+    padding: 0.8rem;
+}
+
+.id .name {
+    color: #213F7D;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.id .nameId {
+    color: #545F7D;
+    font-size: 0.7rem;
+    font-weight: 400;
+}
+
+.card1 .menu {
+    display: flex;
+    justify-content: space-between;
+    padding:0rem 1rem;
+
+}
+.menu span {
+    font-size:0.8rem;
+    font-weight: 400;
+    color: #000;
+    padding: 0rem 1rem;
+    padding-bottom: 0.5rem;
+}
+
+.menu span:hover,
+.menu span.active {
+    color: #39CDCC;
+    border-bottom: 2px solid #39CDCC;
+}
+
+.personalInfo1 {
+    width: 100%;
+    margin-top: 2rem;
+    background: #fff;
+    padding: 1rem;
+}
+
+.personalInfo {
+    padding: 0rem 1rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #213F7D;
+}
+.personalInfo h3 {
+    padding: 1rem 0rem;
+    color: #213F7D;
+    font-weight: 500;
+    font-size: 0.8rem;
+}
+.personalInfo ul  {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2rem;
+}
+
+.personalInfo ul li {
+    display: flex;
+    flex-direction: column;
+}
+.personalInfo ul li .labelname {
+    color: #545F7D;
+    font-size: 0.7rem;
+    font-weight: 400;
+    display: flex;
+    flex-direction: column;
+    text-transform: uppercase;
+}
+
+.personalInfo ul li .labelvalue {
+    color: #545F7D;
+    font-size: 0.9rem;
+    font-weight: 500;
+    line-height: 2rem;
+}

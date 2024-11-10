@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+.contCard {
+    padding: 2rem 0rem;
+}
+
+.nameCard  {
+    color: #213F7D;
+    font-size: 1.5rem;
+    font-family: 'Work Sans';
+    font-weight: 500;
+}
+
+.CardBox {
+    position: relative;
+    width: 100%;
+    padding:2rem  0rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 30px;
+}
+
+.CardBox .Cards {
+    position: relative;
+    background: #fff;
+    padding: 1.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    box-shadow:  7px 1px 25px 1px #213F7D0F;
+    border-radius: 2px;
+}
+.CardBox .Cards .Numbers {
+    font-weight: 600;
+    font-size: 1.3rem;
+    color: #213F7D;
+    font-family: "Work Sans";
+    line-height: 2rem;
+}
+
+.CardBox .Cards .CardName {
+    color: #545F7D;
+    font-size: 0.8rem;
+    font-family: "Work Sans";
+    font-weight: 500;
+    line-height: 1.5rem;
+}
+
+.CardBox .Cards .iconBx {
+    height: 2.5rem;
+    width: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+}
+.CardBox .Cards:nth-child(1) .iconBx {
+    background: #fdf0ff;
+}
+
+.CardBox .Cards:nth-child(2) .iconBx {
+    background: #f4f0ff;
+}
+.CardBox .Cards:nth-child(3) .iconBx {
+    background: #ffeeeb;
+}
+
+.CardBox .Cards:nth-child(4) .iconBx {
+    background: #fff2f6;
+}
+
+
+.CardBox .Cards:hover {
+    background: #213F7D0F;
+}
+
+.CardBox .Cards:hover .Numbers,
+.CardBox .Cards:hover .CardName,
+.CardBox .Cards:hover .iconBx {
+    color: var(--pink);
+}
+
+
