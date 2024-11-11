@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './userdetails.module.scss'
 import TagList from './InfoComponent';
-import { UserInterface, createEmptyProfile } from './userInterface';
+import { UserInterface} from './userInterface';
 
 interface userProps {
     profile: UserInterface | null;
@@ -9,6 +9,7 @@ interface userProps {
   }
 
 const UserDetails:React.FC<userProps> = ({setProfile, profile}) => {
+    console.log(profile)
 
     const personalInfoTags = ['Full Name', 'Phone Number', 'Email Address', 'Bvn', 'Gender', 'Marital Status',
         'Children', 'Type of Residence'
@@ -89,9 +90,26 @@ const UserDetails:React.FC<userProps> = ({setProfile, profile}) => {
             <TagList mainName="Personal Information" tags={personalInfoTags}  info={profile ? profile.PersonalInfo : null} row={5} border={'1px solid  #213F7D'} />
             <TagList mainName="Education and employment" tags={employmentTags}  info={profile ? profile.EducationAndEmployment : null} row={4} border={'1px solid  #213F7D'} />
             <TagList mainName="Socials" tags={socialsTags}  info={profile ? profile.Socials : null} row={5} border={'1px solid  #213F7D'}/>
-            <TagList mainName="Guarantors" tags={guarantorTags}  info={profile ? profile.Guarantors[0] : null}  row={5} border={'1px solid  #213F7D'}/>
-            <TagList mainName="" tags={guarantorTags}  info={profile ? profile.Guarantors[1] : null}  row={4} border={'none'} />
+            {profile && profile.Guarantor.length > 0 &&
+            <TagList 
+                mainName="Guarantors" 
+                tags={guarantorTags} 
+                info={profile && profile.Guarantor.length > 0  ? profile.Guarantor[0] : null} 
+                row={5} 
+                border={'1px solid  #213F7D'} 
+            />
+}
+            {profile && profile.Guarantor.length > 0 &&
+            <TagList 
+                mainName="" 
+                tags={guarantorTags} 
+                info={profile && profile.Guarantor.length > 0  ? profile.Guarantor[1] : null} 
+                row={5} 
+                border={'none'} 
+            />
+            }
         </div>
+
     </div>
   )
 }

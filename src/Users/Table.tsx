@@ -15,7 +15,6 @@ const Table: React.FC<TableProps> = ({ data, setShowFilter, setProfile }) => {
   // Function to determine the appropriate class for each status
 
   const [info, setInfo] = useState<number | null>();
-  
 
     const getStatusClass = (status: string) => {
     switch (status) {
@@ -43,6 +42,7 @@ const Table: React.FC<TableProps> = ({ data, setShowFilter, setProfile }) => {
   };
 
   const viewProfile = (profile: UserInterface) => {
+    console.log(profile)
     setProfile(profile)
   }
 
@@ -68,9 +68,9 @@ const Table: React.FC<TableProps> = ({ data, setShowFilter, setProfile }) => {
         {data.map((row, index) => (
           <tr key={index} id={index.toString()}>
             <td>{row.Organization}</td>
-            <td>{row.PersonalInfo['Full Name']}</td>
-            <td>{row.PersonalInfo['Email Address']}</td>
-            <td>{row.PersonalInfo['Phone Number']}</td>
+            <td>{row.PersonalInfo?.['Full Name'] || 'N/A'}</td>
+            <td>{row.PersonalInfo?.['Email Address'] || 'N/A'}</td>
+            <td>{row.PersonalInfo?.['Phone Number'] || 'N/A'}</td>
             <td>{row.dateJoined}</td>
             <td><span className={getStatusClass(row.Status)}>{row.Status}</span></td>
             <td className={styles.dot} ><i onClick={() => moreInfo(index)} className='bx bx-dots-vertical-rounded'></i>

@@ -1,32 +1,48 @@
-import React, {useState} from 'react'
-import axios from 'axios'
+import React, {useState, useEffect} from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchAdmins } from '../adminSlice';
+import { loginUser } from '../adminSlice';
+import { RootState, AppDispatch} from '../store'
 import lpPics from '../Assets/lpPics.png'
 import styles from './landingPage.module.scss';
+import { useNavigate } from 'react-router-dom';
 
 const LandingPage:React.FC = () => {
 
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState<string | null>(null);
-  const [show, setShow] = useState(false)
+  const [error, setError] = useState<string | null>('');
+  const [show, setShow] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const dispatch = useDispatch<AppDispatch>();
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    dispatch(fetchAdmins());
+  }, [dispatch]);
+
+
+  // Get admins from the Redux store
+
+  const { admins, isCorrectPassword } = useSelector(
+    (state: RootState) => state.admins
+  );
+
+  const handleSubmit =  (e: React.FormEvent) => {
     e.preventDefault();
 
-    try {
-      const response = await axios.post('/api/login', {
-        email,
-        password,
-      });
-      console.log('Login successful:', response.data);
-      setEmail('');
-      setPassword('');
-      setError(null);
+    const matchedAdmin = admins.find((admin) => admin.email === email && admin.password === password);
 
-    } catch (err) {
-      setError('Login failed. Incorrect password or email.');
-      console.error('Error logging in:', err);
+      if (matchedAdmin) {
+        const isAuth = true;
+        dispatch(loginUser({ isAuth, id: matchedAdmin.id }));
+      } else {
+        setError('Incorrect Email or password');
+      }
+
+    if(isCorrectPassword) {
+      navigate('/lendsqr/users')
     }
   };
 

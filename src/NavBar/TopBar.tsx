@@ -1,12 +1,47 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState, AppDispatch} from '../store'
+import { fetchAdmins, getAdminUsers } from '../adminSlice'
 import styles from './topBar.module.scss';
 import { Link } from 'react-router-dom';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'boxicons/css/boxicons.min.css';
 
+interface Admin {
+  id: string;
+  Fullname: string;
+  password: string;
+  email: string;
+}
+
 const TopBar:React.FC = () => {
 
-    const [searchItem,setSearchItem] = useState('')
+    const [searchItem,setSearchItem] = useState('');
+    const [admin, setAdmin] = useState<Admin | null>(null)
+
+    const { admins, userId } = useSelector(
+      (state: RootState) => state.admins
+    );
+
+    console.log(admins)
+
+    const dispatch = useDispatch<AppDispatch>();
+    useEffect(() => {
+      dispatch(fetchAdmins())
+    }, [fetchAdmins, dispatch])
+
+    useEffect(() => {
+      console.log('Admins:', admins);
+      console.log('User ID:', userId);
+      if (userId) {
+        const foundAdmin = admins.find((admin) => admin.id === userId) || null;
+        console.log('Found Admin:', foundAdmin); // Debug here
+        setAdmin(foundAdmin);
+      }
+    }, [userId, admins]);
+    
+
+console.log(admin)
 
   return (
     <div className={styles.topBar}>
@@ -37,7 +72,7 @@ const TopBar:React.FC = () => {
             <div className={styles.notification}><i className="fa-regular fa-bell"></i></div>
             <div className={styles.pro}>
                 <div className={styles.userImage}><i className="fa-regular fa-circle-user"></i></div>
-                <div className={styles.userName}>Adedeji <i className='bx bxs-down-arrow'></i></div>
+                <div className={styles.userName}>{admin ? admin.Fullname.split(' ')[1] : ''}<i className='bx bxs-down-arrow'></i></div>
             </div>
         </div>
     </div>

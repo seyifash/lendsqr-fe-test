@@ -1,6 +1,6 @@
 // dataInterfaces.ts
 
-export interface Guarantor {
+export interface guarantor {
     'Full Name': string;
     'Phone Number': string;
     'Email Address': string;
@@ -42,39 +42,8 @@ export interface Guarantor {
     Organization: string;
     dateJoined: string;
     Socials: Socials;
-    Guarantors: Guarantor[];
+    Guarantor: guarantor[];
     Status: 'Active' | 'Inactive' | 'Pending' | 'Blacklisted';
   }
 
-  export const createEmptyProfile = (): UserInterface => ({
-    PersonalInfo: {
-      'Full Name': '',
-      'Phone Number': '',
-      'Email Address': '',
-      BVN: '',
-      Gender: '',
-      'Marital Status': '',
-      Children: 0,
-      'Type of Residence': '',
-    },
-    EducationAndEmployment: {
-      'Level of Education': '',
-      'Employment Status': '',
-      'Sector of Employment': '',
-      'Duration of Employment': '',
-      'Office Email': '',
-      'Monthly Income': '',
-      'Loan Repayment': '',
-    },
-    Organization: '',
-    dateJoined: '',
-    Socials: {
-      Twitter: '',
-      Facebook: '',
-      Instagram: '',
-    },
-    Guarantors: [],
-    Status: 'Inactive',
-  });
-  
   

@@ -1,11 +1,11 @@
 import React from 'react';
 import styles from './userdetails.module.scss'
-import { EducationAndEmployment, PersonalInfo, UserInterface, Socials, Guarantor } from './userInterface';
+import { EducationAndEmployment, PersonalInfo, UserInterface, Socials, guarantor } from './userInterface';
 
 interface TagListProps {
   mainName: string;
   tags: string[]; 
-  info: PersonalInfo | EducationAndEmployment | Socials | Guarantor | null;
+  info: PersonalInfo | EducationAndEmployment | Socials | guarantor | null;
   row: number;
   border: string;
 }

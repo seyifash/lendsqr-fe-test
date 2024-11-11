@@ -29,7 +29,7 @@ const data:UserInterface[] = [
       'Facebook': 'facebook.com/johndoe',
       'Instagram': 'instagram.com/johndoe'
     },
-    Guarantors: [
+    Guarantor: [
       {
         'Full Name': 'Jane Smith',
         'Phone Number': '+234 701 234 5678',
@@ -72,7 +72,7 @@ const data:UserInterface[] = [
       'Facebook': 'facebook.com/emilyroberts',
       'Instagram': 'instagram.com/emily_roberts'
     },
-    Guarantors: [
+    Guarantor: [
       {
         'Full Name': 'Daniel Roberts',
         'Phone Number': '+234 701 987 6543',
@@ -109,7 +109,7 @@ const data:UserInterface[] = [
       'Facebook': 'facebook.com/emilyroberts',
       'Instagram': 'instagram.com/emily_roberts'
     },
-    Guarantors: [
+    Guarantor: [
       {
         'Full Name': 'Daniel Roberts',
         'Phone Number': '+234 701 987 6543',

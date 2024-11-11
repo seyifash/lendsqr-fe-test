@@ -1,4 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchUsers } from '../Users/userSlice';
+import { RootState, AppDispatch} from '../store'
 import CardClick from './cards';
 import Table from './Table';
 import Pagination from './Pagination';
@@ -30,12 +33,25 @@ const UsersDashboard: React.FC = () => {
     dateJoined: '',
     status: '',
   });
+
+  const dispatch = useDispatch<AppDispatch>();
+
+  useEffect(() => {
+    dispatch(fetchUsers());
+
+  }, [dispatch]);
+
+
+  // Get users and admins from the Redux store
+  const { users } = useSelector(
+    (state: RootState) => state.users
+  );
   const [showFilter, setShowFilter] = useState(false); // State to toggle filter visibility
 
 
   // Apply filter to the data
   const applyFilter = () => {
-    return data.filter((row: UserInterface) => {
+    return users.filter((row: UserInterface) => {
       return (
         (filterData.organization ? row.Organization.toLowerCase().includes(filterData.organization.toLowerCase()) : true) &&
 
@@ -92,7 +108,7 @@ const UsersDashboard: React.FC = () => {
                 onFilterChange={handleFilterChange}
                 applyFilter={applyFilter}
                 closeFilter={() => setShowFilter(false)}
-                data={data}
+                data={users}
               />
             )}
 
