@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import {logoutUser} from '../adminSlice';
@@ -6,16 +6,21 @@ import { RootState, AppDispatch} from '../store';
 import styles from './navigation.module.scss'
 import { Link } from 'react-router-dom'
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import { UserInterface } from '../Users/userInterface';
 
 const NavBar:React.FC = () => {
  
   const [showMenu, setShowMenu] = useState(false);
   const [activeId, setActiveId] = useState<number | null>(null);
   const  navigate = useNavigate();
+  const [organizations, setOrganizations] = useState<string[]>()
 
   const dispatch = useDispatch<AppDispatch>();
   const { isCorrectPassword } = useSelector(
     (state: RootState) => state.admins
+  );
+  const { users } = useSelector(
+    (state: RootState) => state.users
   );
 
   const handleClick = (event: React.MouseEvent<HTMLSpanElement>) => {
@@ -31,7 +36,25 @@ const NavBar:React.FC = () => {
       if(!isCorrectPassword) {
         navigate('/')
       }
+  
     }
+
+    const getOrganization = () => {
+
+      const organizations: string[] = []
+      
+       users.map(user => {
+        if(!organizations.includes(user.Organization))
+          organizations.push(user.Organization)
+      })
+
+      return organizations
+    }
+
+    useEffect(() => {
+      const organizations = getOrganization();
+      setOrganizations(organizations)
+    }, [getOrganization])
 
   return (
    
@@ -52,9 +75,10 @@ const NavBar:React.FC = () => {
             </span>
           </div>
             <ul className={`${styles.dropdownmenu} ${showMenu ? styles.show : styles.hide}`}>
-              <li>Organization 1</li>
-              <li>Organization 2</li>
-              <li>Organization 3</li>
+              {organizations && organizations.map((organization, index) => (
+                <li key={index}>{organization}</li>
+              ))
+                }
             </ul>
           </li>
           <li  className={styles.li}>
