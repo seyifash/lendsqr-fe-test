@@ -4,26 +4,15 @@ import { fetchUsers } from '../Users/userSlice';
 import { RootState, AppDispatch} from '../store'
 import CardClick from './cards';
 import Table from './Table';
-import Pagination from './Pagination';
 import FilterForm from './FilterComponent';
 import styles from './user.module.scss';
-import data from './data';
 import UserDetails from './userDetails';
 import { UserInterface } from './userInterface';
 
-// Define the structure for each row of data
-type RowData = {
-  organization: string;
-  username: string;
-  email: string;
-  phoneNumber: string;
-  dateJoined: string;
-  status: string;
-};
+
 
 const UsersDashboard: React.FC = () => {
-  const pageSize = 10;
-  const [currentPage, setCurrentPage] = useState(1);
+  
   const [profile, setProfile] = useState<UserInterface | null>(null)
   const [filterData, setFilterData] = useState<any>({
     organization: '',
@@ -51,7 +40,7 @@ const UsersDashboard: React.FC = () => {
 
   // Apply filter to the data
   const applyFilter = () => {
-    return users.filter((row: UserInterface) => {
+    return filterData ? users.filter((row: UserInterface) => {
       return (
         (filterData.organization ? row.Organization.toLowerCase().includes(filterData.organization.toLowerCase()) : true) &&
 
@@ -69,24 +58,11 @@ const UsersDashboard: React.FC = () => {
         
         (filterData.status ? row.Status.toLowerCase().includes(filterData.status.toLowerCase()) : true)
       );
-    });
+    }) : users
   };
 
+  const data = applyFilter();
 
-  // Calculate total pages
-  const filteredData = applyFilter();
-  const totalItems = filteredData.length;
-  const totalPages = Math.ceil(totalItems / pageSize);
-
-  // Get paginated data after filtering
-  const paginatedData = filteredData.slice((currentPage - 1) * pageSize, currentPage * pageSize);
-  
-  // Handle page change
-  const handlePageChange = (page: number) => {
-    setCurrentPage(page);
-  };
-
-  // Handle filter change
   const handleFilterChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFilterData({ ...filterData, [name]: value });
@@ -113,16 +89,9 @@ const UsersDashboard: React.FC = () => {
             )}
 
             <div className={styles.tableCont}>
-              <Table data={paginatedData}  setShowFilter={setShowFilter} setProfile={setProfile}/>
+              <Table data={data}  setShowFilter={setShowFilter} setProfile={setProfile}/>
             </div>
 
-            <Pagination
-              currentPage={currentPage}
-              totalPages={totalPages}
-              onPageChange={handlePageChange}
-              pageSize={pageSize}
-              totalItems={totalItems}
-            />
 
           </div>    
       }

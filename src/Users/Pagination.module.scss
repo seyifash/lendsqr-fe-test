@@ -40,12 +40,14 @@
 }
 .activePage {
     color: #213F7D;
+    font-size: 1rem;
 }
 
 .pageControls {
     display: flex;
     min-width: 13rem;
     justify-content: space-between;
+    align-items: center;
     margin-bottom: 2rem;
 }
 
@@ -62,4 +64,13 @@
 }
 .control i {
     font-size: 1.3rem;
+}
+
+.visited {
+
+    display: flex;
+    align-items: center;
+}
+.visited .num {
+    padding-right: 0.5rem;
 }

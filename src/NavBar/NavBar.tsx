@@ -52,9 +52,9 @@ const NavBar:React.FC = () => {
     }
 
     useEffect(() => {
-      const organizations = getOrganization();
-      setOrganizations(organizations)
-    }, [getOrganization])
+      const organization = getOrganization();
+      setOrganizations(organization)
+    },[users])
 
   return (
    
